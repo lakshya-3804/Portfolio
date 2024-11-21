@@ -4,6 +4,7 @@ import homeimg from "../assets/home_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png";
 import profile from "../assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png";
 import projimg from "../assets/icons8-projects-50.png";
 import descimg from "../assets/description_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png";
+import phoeniximg from "../assets/icons8-phoenix-96.png";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function NavBar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
-            src="https://dreamersia.com/wp-content/uploads/2023/06/Hong_Hy_the_legendary_phoenix_majestic_bright_vibrant_sacred_go_aa9b74f0-9e4e-4b44-9ad0-2e42c2733cfe.png"
+            src={phoeniximg}
             className="h-8"
             alt="Flowbite Logo"
           />

@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import profimg from "../assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"; // Correctly import the image
+import profimg from "../assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"; 
+import eduimg from "../assets/icons8-education-50.png";
+import skillimg from "../assets/icons8-skills-50.png";
+import projimg from "../assets/icons8-projects-50.png";
+import achimg from "../assets/icons8-achievement-50.png";
 
 const Resume = () => {
   const [activeTab, setActiveTab] = useState('Profile');
@@ -7,10 +11,10 @@ const Resume = () => {
 
   const tabItems = [
     { name: 'Profile', icon: profimg },
-    { name: 'Education', icon: "https://img.icons8.com/?size=100&id=73815&format=png&color=FFFFFF" },
-    { name: 'Skills', icon: "https://img.icons8.com/?size=100&id=52233&format=png&color=FFFFFF" },
-    { name: 'Projects', icon: "https://img.icons8.com/?size=100&id=61215&format=png&color=FFFFFF" },
-    { name: 'Achievements', icon: "https://img.icons8.com/?size=100&id=10717&format=png&color=FFFFFF" },
+    { name: 'Education', icon: eduimg},
+    { name: 'Skills', icon: skillimg },
+    { name: 'Projects', icon: projimg },
+    { name: 'Achievements', icon: achimg },
   ];
 
   const handleTabClick = (tab) => {
