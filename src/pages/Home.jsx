@@ -9,24 +9,24 @@ const Home = () => {
       >
         <div class="w-full ">
           <div class="text-center md:text-start">
-            <h1 className="text-[40px] pb-15">
+            <h1 className="text-[25px] md:text-[40px] pb-15">
               Hi There!{" "}
               
             </h1>
           </div>
           <div class="text-center md:text-start">
-            <h1 className="text-[40px] pb-15">
+            <h1 className="text-[25px] pb-15 md:text-[40px]">
               I'm <strong>Lakshya Prajapati</strong>
             </h1>
           </div>
 
-          <div class="my-3 text-center md:text-start">
-            <p className="text-[22px]">
+          <div class="my-3 px-3 text-center md:text-start">
+            <p className="text-[16px] md:text-[22px]">
             I'm a Full Stack Web Developer and Competitive Programmer with a passion for building efficient applications and solving challenging problems.
             </p>
           </div>
 
-          <div class="text-[40px] font-bold text-center md:text-start">
+          <div class="text-[25px] font-bold text-center md:text-start md:text-[40px]">
             <Typewriter
               options={{
                 strings: [
