@@ -20,9 +20,9 @@ const Home = () => {
             </h1>
           </div>
 
-          <div class="my-3 px-3 text-center md:text-start">
+          <div class="my-3 text-center md:text-start">
             <p className="text-[16px] md:text-[22px]">
-            I'm a Full Stack Web Developer and Competitive Programmer with a passion for building efficient applications and solving challenging problems.
+            I'm a Full Stack Web Developer and a Competitive Programmer with a passion for building efficient applications and solving challenging problems.
             </p>
           </div>
 
