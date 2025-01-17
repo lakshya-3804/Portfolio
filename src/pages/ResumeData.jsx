@@ -46,17 +46,17 @@ const dataObj = {
     'Profile': {
         content: 
         <div className="text-white flex flex-col h-[100%] w-[100%]">
-            <p className="text-[1.1rem] lg:text-[2rem] md:text-[1.4rem] mb-3">Name - Lakshya Prajapati</p>
-            <p className="text-[1.1rem] lg:text-[2rem] md:text-[1.4rem] mb-3">Email - lakshyaiffco.prajapati@gmail.com</p>
-            <p className="text-[1rem] lg:text-[1.7rem] md:text-[1.2rem] mb-3 text-[wheat]">
+            <p className="text-[12px] lg:text-[2rem] md:text-[1.4rem] mb-3">Name - Lakshya Prajapati</p>
+            <p className="text-[12px] lg:text-[2rem] md:text-[1.4rem] mb-3">Email - lakshyaiffco.prajapati@gmail.com</p>
+            <p className="text-[12px] lg:text-[1.7rem] md:text-[1.2rem] mb-3 text-[wheat]">
                 I'm a Full Stack Web Developer and Competitive Programmer with a passion for building efficient applications and solving challenging problems.
             </p>
             <div className='flex gap-x-4 mt-auto'>
                 <Link to="https://in.linkedin.com/in/lakshya-prajapati-877b22289" target='_blank'>
-                    <img src={linkedInimg} className='w-12'></img>
+                    <img src={linkedInimg} className='w-8 sm:w-12'></img>
                 </Link>
                 <Link to="https://github.com/lakshya-3804" target='_blank'>
-                    <img src={gitHubimg} className='w-12'></img>
+                    <img src={gitHubimg} className='w-8 sm:w-12'></img>
                 </Link>
             </div>
         </div>
@@ -76,8 +76,8 @@ const dataObj = {
                     <ul className='list-disc'>
                         <li>
                             <h3 className='text-[18px] md:text-[30px] font-bold mb-1' >{item.name} <a href={item.code} target='_blank' alt={item.name}>🔗</a> </h3>
-                            <p className='text-[15px] md:text-[20px] mb-2 text-gray-300'>{item.desc}</p>
-                            <p className='text-[17px] md:text-[22px]'>Tech Stack - {item.tech}</p>
+                            <p className='text-[13px] md:text-[20px] mb-2 text-gray-300'>{item.desc}</p>
+                            <p className='text-[15px] md:text-[22px]'>Tech Stack - {item.tech}</p>
                         </li>
                     </ul>
                 </div>
@@ -118,7 +118,7 @@ const dataObj = {
         <div className='h-full flex flex-col justify-around text-gray-200 lg:text-[17px] md:text-[15px] text-[13px] gap-y-4'>
             <h2 className='text-2xl md:text-4xl mb-3 font-bold' >Education</h2>
             <div className='flex gap-x-4 items-center'>
-                <img src={iiitlogo} className='w-[100px] h-[90px] bg-white rounded-[5px]'></img>
+                <img src={iiitlogo} className='w-[60px] h-[50px] sm:w-[100px] sm:h-[90px] bg-white rounded-[5px]'></img>
                 <div>
                     <h3>IIIT Lucknow</h3>
                     <p>BTech - Computer Science</p>
@@ -126,7 +126,7 @@ const dataObj = {
                 </div>
             </div>
             <div className='flex gap-x-4 items-center'>
-                <img src={kvlogo} className='w-[100px] h-[90px] rounded-[5px]'></img>
+                <img src={kvlogo} className='w-[60px] h-[50px] sm:w-[100px] sm:h-[90px] rounded-[5px]'></img>
                 <div>
                     <h3>Kendriya Vidyalaya IFFCO</h3>
                     <p>CBSE</p>
@@ -135,7 +135,7 @@ const dataObj = {
                 </div>
             </div>
             <div className='flex gap-x-4 items-center'>
-                <img src={srilogo} className='w-[100px] h-[90px] rounded-[5px]'></img>
+                <img src={srilogo} className='w-[60px] h-[50px] sm:w-[100px] sm:h-[90px] rounded-[5px]'></img>
                 <div>
                     <h3>S.R.International Bareilly</h3>
                     <p>CBSE</p>
@@ -165,7 +165,7 @@ const dataObj = {
             </div>
 
             <h3 className='font-bold underline'>Coursework </h3>
-            <div className='flex gap-x-6 items-center flex-wrap'>
+            <div className='flex gap-x-6 items-center flex-wrap text-[15px] sm:text-[18px]'>
                 <p>DSA</p>
                 <p>DBMS</p>
                 <p>OS</p>
