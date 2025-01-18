@@ -36,12 +36,7 @@ export default function NavBar() {
       img: descimg,
       alt: "resume",
     },
-    {
-      name: "Contact",
-      path: '/contact',
-      img: "https://img.icons8.com/?size=100&id=123515&format=png&color=FFFFFF",
-      alt: "contact",
-    }];
+    ];
 
 
   return (
