@@ -87,22 +87,21 @@ export default function NavBar() {
 
         {/* NAVBAR OPTIONS */}
         <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${menuOpen ? "" : "hidden"}`}>
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+          <div className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
 
             {dat.map((item) => (
-              <li>
                 <Link
                   to={item.path}
-                  className={`block flex items-center py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 ${(location.pathname === item.path) ? 'text-orange-400' : ''}`}
+                  className={`block flex items-center py-2 px-3 text-white rounded hover:bg-gray-600 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 ${(location.pathname === item.path) ? 'text-orange-400' : ''}`}
                   aria-current="page"
+                  onClick={() => setMenuOpen(false)}
                 >
                   <img src={item.img} alt={item.alt} className="w-5 h-5 mr-1" />
                   {item.name}
                 </Link>
-              </li>
             ))}
 
-          </ul>
+          </div>
         </div>
         {/* THIS SECTION ENDS */}
 

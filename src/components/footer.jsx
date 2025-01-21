@@ -18,10 +18,10 @@ const Footer = () => {
         © 2024
       </p>
       <div className='flex'>
-        <a href="https://www.facebook.com/" className='px-1 md:px-4'><img className='w-7' src={faceimg} alt="telegram" /></a>
-        <a href="https://www.instagram.com/lakshya_3804/" className='px-1 md:px-4'><img className='w-7' src={instaimg} alt="instagram" /></a>
-        <a href="https://in.linkedin.com/in/lakshya-prajapati-877b22289" className='px-1 md:px-4'><img className='w-7' src={linkedimg} alt="linkedin" /></a>
-        <a href="https://x.com/lakshya_3804?t=CI8afYh6TabLI1ILNb2uJQ&s=08" className='px-1 md:px-4'><img className='w-7' src={twitterimg} alt="twitter" /></a>
+        <a href="https://www.facebook.com/" target='_blank' className='px-1 md:px-4'><img className='w-7' src={faceimg} alt="telegram" /></a>
+        <a href="https://www.instagram.com/lakshya_3804/" target='_blank' className='px-1 md:px-4'><img className='w-7' src={instaimg} alt="instagram" /></a>
+        <a href="https://in.linkedin.com/in/lakshya-prajapati-877b22289" target='_blank' className='px-1 md:px-4'><img className='w-7' src={linkedimg} alt="linkedin" /></a>
+        <a href="https://x.com/lakshya_3804?t=CI8afYh6TabLI1ILNb2uJQ&s=08" target='_blank' className='px-1 md:px-4'><img className='w-7' src={twitterimg} alt="twitter" /></a>
       </div>
 
     </div>
