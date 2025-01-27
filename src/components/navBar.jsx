@@ -43,7 +43,7 @@ export default function NavBar() {
     <nav className="bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* NAVBAR LOGO */}
-        <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <div className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
             src={phoeniximg}
             className="h-8"
@@ -52,7 +52,7 @@ export default function NavBar() {
           <span className="self-center text-2xl font-semibold whitespace-nowrap">
             Portfolio
           </span>
-        </a>
+        </div>
         {/* THIS SECTION ENDS */}
 
         {/* NAVBAR MENU-BUTTON FOR SMALL SCREEN */}
