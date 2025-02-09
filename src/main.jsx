@@ -5,10 +5,12 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import NavBar from './components/navBar.jsx'
 import Footer from './components/footer.jsx'
+import BackgroundSpline from './components/splineBackground.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+      <BackgroundSpline />
       <NavBar />
       <App />
       <Footer />

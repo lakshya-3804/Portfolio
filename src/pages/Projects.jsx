@@ -57,7 +57,7 @@ const Projects = () => {
       <h2 className="text-center text-3xl md:text-5xl mt-10">My Projects</h2>
       <div className="flex flex-wrap text-gray-100 mt-10 gap-x-10 gap-y-10 p-10 justify-evenly">
       {prjData.map((item) => (
-        <div className="max-w-sm border border-gray-200 rounded-lg shadow bg-gray-800 border-gray-700 h-full sm:h-[500px] sm:w-[350px] pb-2 " >
+        <div className="max-w-sm border border-gray-200 rounded-lg shadow bg-gray-900/70 backdrop-blur-sm border border-white/30 shadow-md bg-gray-800 border-gray-700 h-full sm:h-[500px] sm:w-[350px] pb-2 " >
 
           <img className="rounded-t-lg h-[40%] w-[100%]" src={item.img} alt={item.name} />
 

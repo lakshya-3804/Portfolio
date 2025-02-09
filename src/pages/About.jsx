@@ -7,7 +7,7 @@ const About = () => {
         role="status"
         class="space-y-8 flex flex-wrap-reverse justify-center md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-start md:justify-around md:w-[80%] m-auto md:flex-nowrap"
       >
-        <div class="w-full bg-gray-900 text-gray-400 p-6 rounded-[30px] mx-5 text-[13px] ">
+        <div class="w-full  text-gray-300 p-6 rounded-[30px] mx-5 text-[13px]  bg-gray-900/10 backdrop-blur-sm border border-white/30 shadow-md">
 
           <div class="text-start">
             <h1 className="md:text-[30px] pb-15">Hi There! 👋</h1>

@@ -65,7 +65,7 @@ const Resume = () => {
             ))}
           </ul>
         )}
-        <div className="mt-10 p-6 bg-gray-800 text-medium text-gray-500 rounded-lg w-full">
+        <div className="mt-10 p-6 bg-gray-900/90 backdrop-blur-sm border border-white/30 shadow-md text-medium text-gray-500 rounded-lg w-full">
           {dataObj[activeTab].content}
         </div>
       </div>
@@ -92,7 +92,7 @@ const Resume = () => {
         </ul>
         
         {/* Tab Content */}
-        <div className="p-6 bg-gray-800 text-medium text-gray-300 rounded-lg w-full">
+        <div className="p-6 bg-gray-900/90 backdrop-blur-sm border border-white/30 shadow-md text-medium text-gray-300 rounded-lg w-full">
           {dataObj[activeTab].content}
         </div>
         {/* ends */}
