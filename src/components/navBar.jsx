@@ -1,111 +1,149 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import homeimg from "../assets/home_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png";
-import profile from "../assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png";
-import projimg from "../assets/icons8-projects-50.png";
-import descimg from "../assets/description_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png";
-import phoeniximg from "../assets/icons8-phoenix-96.png";
+/**
+ * NavBar.jsx
+ * ─────────────────────────────────────────────────
+ * Floating glassmorphic navigation bar.
+ * – Active route indicator with neon underline glow
+ * – Mobile hamburger with animated slide-in menu
+ * – Sticky top positioning with blur backdrop
+ */
+
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation }          from 'react-router-dom';
+import Icons                           from './Icons';
+
+/* Navigation link definitions */
+const NAV_LINKS = [
+  { label: 'Home',     path: '/',        icon: Icons.Home       },
+  { label: 'About',    path: '/about',   icon: Icons.User       },
+  { label: 'Projects', path: '/project', icon: Icons.FolderOpen },
+  { label: 'Resume',   path: '/resume',  icon: Icons.FileText   },
+];
 
 export default function NavBar() {
+  const location             = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const location=useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
-  // NavBar options component filler array
-  const dat=[
-    {
-      name: "Home",
-      path: '/',
-      img: homeimg,
-      alt: "home",
-    },
-    {
-      name: "About",
-      path: '/about',
-      img: profile,
-      alt: "about",
-    },
-    {
-      name: "Projects",
-      path: '/project',
-      img: projimg,
-      alt: "projects",
-    },
-    {
-      name: "Resume",
-      path: '/resume',
-      img: descimg,
-      alt: "resume",
-    },
-    ];
+  /* Add shadow/blur boost after scrolling past 20px */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
+  /* Close mobile menu on route change */
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  const isActive = (path) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
   return (
-    <nav className="bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* NAVBAR LOGO */}
-        <div className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
-            src={phoeniximg}
-            className="h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">
-            Portfolio
-          </span>
-        </div>
-        {/* THIS SECTION ENDS */}
+    <nav
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? 'bg-gray-950/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/30'
+          : 'bg-gray-950/60 backdrop-blur-lg border-b border-white/5'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
 
-        {/* NAVBAR MENU-BUTTON FOR SMALL SCREEN */}
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse md:hidden">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-expanded={menuOpen}
+          {/* ── Logo ───────────────────────────────── */}
+          <Link
+            to="/"
+            className="flex items-center gap-2 group"
+            id="nav-logo"
+            aria-label="Lakshya Prajapati — Home"
           >
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center shadow-md">
+              <span className="text-gray-950 font-black text-sm font-mono">LP</span>
+            </div>
+            <span className="font-bold text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors duration-200 hidden sm:block">
+              Lakshya<span className="gradient-text">.</span>
+            </span>
+          </Link>
 
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
+          {/* ── Desktop Links ───────────────────────── */}
+          <div className="hidden md:flex items-center gap-1">
+            {NAV_LINKS.map(({ label, path, icon: Icon }) => (
+              <Link
+                key={path}
+                to={path}
+                id={`nav-${label.toLowerCase()}`}
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative ${
+                  isActive(path)
+                    ? 'text-cyan-300'
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                <Icon size={15} />
+                {label}
+                {/* Active neon underline */}
+                {isActive(path) && (
+                  <span className="absolute bottom-0.5 left-4 right-4 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-500" />
+                )}
+              </Link>
+            ))}
+          </div>
+
+          {/* ── Desktop CTA ─────────────────────────── */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="mailto:lakshyaiffco.prajapati@gmail.com"
+              id="nav-contact-cta"
+              className="btn-primary text-sm py-2 px-4"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
+              <Icons.Mail size={14} />
+              Contact
+            </a>
+          </div>
 
-            </svg>
+          {/* ── Mobile Hamburger ────────────────────── */}
+          <button
+            id="nav-menu-toggle"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            className="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors duration-200"
+          >
+            {menuOpen ? <Icons.X size={22} /> : <Icons.Menu size={22} />}
           </button>
         </div>
-        {/* THIS SECTION ENDS */}
+      </div>
 
-
-        {/* NAVBAR OPTIONS */}
-        <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${menuOpen ? "" : "hidden"}`}>
-          <div className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
-
-            {dat.map((item) => (
-                <Link
-                  to={item.path}
-                  className={`block flex items-center py-2 px-3 text-white rounded hover:bg-gray-600 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 ${(location.pathname === item.path) ? 'text-orange-400' : ''}`}
-                  aria-current="page"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <img src={item.img} alt={item.alt} className="w-5 h-5 mr-1" />
-                  {item.name}
-                </Link>
+      {/* ── Mobile Slide-in Menu ──────────────────── */}
+      {menuOpen && (
+        <div className="md:hidden glass-strong border-t border-white/5 animate-slide-down">
+          <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+            {NAV_LINKS.map(({ label, path, icon: Icon }) => (
+              <Link
+                key={path}
+                to={path}
+                id={`nav-mobile-${label.toLowerCase()}`}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  isActive(path)
+                    ? 'text-cyan-300 bg-cyan-500/10 border border-cyan-500/20'
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                <Icon size={17} />
+                {label}
+              </Link>
             ))}
-
+            <div className="border-t border-white/5 mt-2 pt-2">
+              <a
+                href="mailto:lakshyaiffco.prajapati@gmail.com"
+                className="btn-primary w-full justify-center text-sm py-2.5"
+              >
+                <Icons.Mail size={15} />
+                Get In Touch
+              </a>
+            </div>
           </div>
         </div>
-        {/* THIS SECTION ENDS */}
-
-      </div>
+      )}
     </nav>
   );
 }
